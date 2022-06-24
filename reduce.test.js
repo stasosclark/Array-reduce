@@ -55,9 +55,9 @@ describe("#partition", function() {
   var names = ["Elie", "Colt", "Tim", "Matt"];
   it("returns an array of arrays with the first subarray as values returning true from the callback", function() {
     expect(partition(arr, isEven)).toEqual([[2, 4, 6, 8], [1, 3, 5, 7]]);
-    // expect(partition(names, isLongerThanThreeCharacters)).toEqual([
-    //   ["Elie", "Colt", "Matt"],
-    //   ["Tim"]
-    // ]);
+    expect(partition(names, isLongerThanThreeCharacters)).toEqual([
+      ["Elie", "Colt", "Matt"],
+      ["Tim"]
+    ]);
   });
 });

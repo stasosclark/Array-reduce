@@ -30,7 +30,16 @@ Examples:
 function vowelCount(str) {
     let lowerStr = str.toLowerCase();
     let arrStr = Array.from(lowerStr)
-    
+    return arrStr.reduce(function(accum, nextVal) {
+        if (nextVal === 'a' || nextVal === 'e' || nextVal === 'i' || nextVal === 'o' || nextVal === 'u') {
+            if(accum[nextVal]) {
+                accum[nextVal] ++;
+            } else {
+                accum[nextVal] = 1;
+            }
+        }
+        return accum;
+    }, {})
 }
 
 /*
@@ -49,7 +58,11 @@ Examples:
 */
 
 function addKeyAndValue(arr, key, value) {
-    
+    let newArr = arr.map(function(obj) {
+        obj[key] = value;
+        return obj;
+    })
+    return newArr;
 }
 
 /*
@@ -94,6 +107,5 @@ function partition(arr, callback) {
         arr2.push(final)
     }
     finArray.push(arr1, arr2)
-    console.log(finArray)
     return finArray;
 }
